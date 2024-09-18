@@ -1,0 +1,34 @@
+<div ng-controller="homeController as homeCtrl" class="container">
+
+
+            <div id="top" class="row top-spacing">
+                <h1  class="text-center">OpenEBench</h1>
+            </div>
+
+            <div class="row main-content-center top-spacing">
+                <input  ng-keyup="$event.keyCode == 13 ? homeCtrl.search(text) : null" ng-model="text" class="main-content-input elevated" type="text" name="" value="" placeholder="Search..." required>
+                <button name="btn" type="button" class="custom-button elevated" ng-click="homeCtrl.search(text)" ng-disabled="!text" >Go!</button>
+            </div>
+
+
+            <div class="row top-spacing">
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        <h3 class="text-center">Scientific Benchmarking</h3>
+                    </div>
+                    <div onclick="location.href='#!/benchmarking'" class="col-md-12 main-content-center img-button">
+                        <img  src="img/IECHOR_data.svg" alt="" class="main-image">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        <h3 class="text-center">Technical Monitoring</h3>
+                    </div>
+                    <div onclick="location.href='#!/agent'" class="col-md-12 main-content-center img-button">
+                        <img  src="img/IECHOR_agents.svg" alt="" class="main-image">
+                    </div>
+
+                </div>
+            </div>
+</div>

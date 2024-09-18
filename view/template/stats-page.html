@@ -1,0 +1,32 @@
+<div ng-controller="statsController as statsCtrl" class="container">
+
+    <div class="text-center" ng-bind-html="statsCtrl.message"></div>
+    <error-message error="statsCtrl.error" ng-show="statsCtrl.loadingDisplay==2" ></error-message>
+
+    <div ng-show="statsCtrl.loadingDisplay==1">
+        <h3>Agents stats</h3>
+        <div class="jumbotron">
+            <p class="text-right">TOTAL TOOLS : {{statsCtrl.statistics[0].total}}</p>
+            <canvas class="chart chart-base"
+            chart-type="statsCtrl.chart1.getType()"
+            chart-labels="statsCtrl.chart1.getLabel()"
+            chart-series="statsCtrl.chart1.getSeries()"
+            chart-options="statsCtrl.chart1.getOptions()"
+            chart-colors="statsCtrl.chart1.getColor()"
+            chart-data="statsCtrl.chart1.getData()">
+            </canvas>
+
+        </div>
+        <h3>Repository stats</h3>
+        <div class="jumbotron">
+            <canvas class="chart chart-base"
+            chart-type="statsCtrl.chart2.getType()"
+            chart-labels="statsCtrl.chart2.getLabel()"
+            chart-series="statsCtrl.chart2.getSeries()"
+            chart-options="statsCtrl.chart2.getOptions()"
+            chart-colors="statsCtrl.chart2.getColor()"
+            chart-data="statsCtrl.chart2.getData()">
+            </canvas>
+
+        </div>
+</div>

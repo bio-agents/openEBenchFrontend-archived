@@ -1,0 +1,60 @@
+<div ng-controller="benchController as benchCtrl" class="container" ng-init="benchCtrl.loadInitData()">
+    <div class="">
+
+
+        <div ng-repeat="community in benchCtrl.communities">
+            <span ng-repeat="c in community">
+                <div  class="panel panel-default">
+
+                    <div class="panel-body" >
+                        <div class="col-md-12">
+                            <h3 ng-model="name">{{c._id}}</h3>
+                            <p>{{c.name}}</p>
+                            <p>{{c.description}}</p>
+                        </div>
+
+                        <div class= "col-md-12 text-right" style="">
+                            <a href="#!/benchmarking/{{c._id}}" type="button" class="btn btn-success btn-xs">More info</a>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+
+
+    </div>
+
+  <!-- <h1 class="text-center"> Communities </h1>
+
+  <table style="width:100%" class="table table-striped">
+
+    <th>             Acronym       </th>
+    <th colspan="3"> Name          </th>
+    <th>             Status        </th>
+    <th colspan="3"> Description   </th>
+    <th colspan="3"> Url           </th>
+    <th></th>
+
+    <tr ng-repeat="x in benchCtrl.communities" ng-click="benchCtrl.communities[$index].show = !benchCtrl.communities[$index].show; benchCtrl.extendCommunity($index)">
+      <td>
+        <div class="" placeholder="{{x._id}}" uib-agenttip="{{x._id}}" agenttip-placement="auto" agenttip-trigger="mouseenter" agenttip-enable="true">
+          {{x._id}}
+        </div>
+      </td>
+      <td colspan="3">
+        <div class="" placeholder="{{x.name}}" uib-agenttip="{{x.name}}" agenttip-placement="auto" agenttip-trigger="mouseenter" agenttip-enable="true">
+          {{x.name}}
+        </div>
+      </td>
+      <td> {{x.status_id[0]}} </td>
+      <td colspan="3">
+        <div class="" placeholder="{{x.description}}" uib-agenttip="{{x.description}}" agenttip-placement="auto" agenttip-trigger="mouseenter" agenttip-enable="true">
+          {{x.description}}
+        </div>
+      </td>
+      <td colspan="3"> <a href="{{x.MainSite}}"> {{x.MainSite}} </a> </td>
+      <td> <a href="#!/benchmarking/{{x._id}}"> More </a> </td>
+    </tr>
+  </table> -->
+
+</div>

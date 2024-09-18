@@ -1,0 +1,264 @@
+/*
+    master.css
+    the main style sheet document
+*/
+/*<style>*/
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:300');*/
+/*</style> */
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+</style>
+*{
+    text-align: justify;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: 'Lobster', cursive;
+
+}
+.border-left{
+    border-left: 1px solid #EF7500 ;
+}
+
+.border-top{
+    border-top: 1px solid #ECECEC ;
+}
+
+a:hover {
+ cursor:pointer;
+}
+.content {
+    margin-top: 65px;
+    /*chaneg the negative value with footer */
+    min-height: calc(100vh - 190px);
+}
+.footer {
+  height: 100px;
+  /*background-color: blue;*/
+}
+
+/*allows content to flow bellow navbar*/
+body {
+    /*margin-top: 65px;*/
+    color: #6A6C6F;
+}
+
+/*orange line on navbar*/
+nav li.underlink :hover{
+     box-shadow:0px -3px 0px 0px #EF7500 inset;
+     transition: box-shadow 0.2s ease-in-out;
+}
+
+/*nav bar links*/
+.navbar-default {
+    background: white;
+    box-shadow: none;
+    font-size: 14px;
+    border: none;
+}
+.diagram{
+    width: 100%;
+    height: 100%;
+}
+
+/*hide logo*/
+@media (max-width: 208px) {
+    .navbar-brand{
+        display: none;
+    }
+}
+@media(max-width:994px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+    /* more code here */
+}
+.top-spacing{
+    padding-top: 10% !important;
+}
+/*table settings*/
+table {
+    table-layout: fixed;
+    overflow: hidden;
+    border: 1px solid #ddd !important;
+}
+.responsive-table{
+    overflow-x: auto;
+}
+
+/*row and columns*/
+th, td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+th {
+    cursor:pointer;
+}
+
+/*table icons*/
+.table-icons{
+    height: 30px;
+    width: auto;
+    /*display: block;*/
+}
+
+/*this is the bottom of the home page*/
+.main-text{
+    font-size: 20px;
+}
+
+.main-text br{
+    padding: 5px;
+    line-height: 200%;
+}
+
+/*all external links */
+a[href^="https://"],a[href^="http://"] {
+    background: url(../../img/external.svg) center right no-repeat;
+    height: 1px;
+    width: auto;
+    padding-right: 13px;
+}
+
+/*on hover elevated effect*/
+.elevated{
+    box-shadow: 5px 5px 10px 0px #F3F3F3;
+    border: inset 1px solid #e7e7e7e7;
+    /*box-shadow: 10px 10px 5px #888888;*/
+}
+
+/*big search bar*/
+.main-content-input{
+    border:1px solid #e7e7e7e7;
+    height: 60px;
+    width: 80%;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 15px;
+}
+.custom-button{
+    background-color: #FFFFFF;
+    border: solid 1px #EF7500;
+    /*color: white;*/
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    width: 20%;
+    height: 60px;
+    font-size: 16px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/*front page content*/
+.main-content-center{
+    padding: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-image{
+
+    width:200px;
+    height:200px;
+}
+
+/*agents and bench buttons*/
+.img-button:hover{
+    cursor: pointer;
+}
+
+/*custom input fields*/
+input{
+    border:1px solid #e7e7e7e7;
+    height: 40px;
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+
+/*advanced-search-input*/
+.advanced-search-input{
+    width:100%;
+}
+
+
+.container-table{
+    width: 96%;
+}
+img{
+    font-size: 12px;
+}
+
+.main-div{
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.main-bg-color{
+    background-color: rgb(241,242,236);
+}
+
+li.activecustom > a{
+     color: #EF7500 !important;
+     background-color: #fdf1e5 !important;
+}
+
+/*footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+
+    text-align: center;
+}*/
+#badge-tag{
+    font-size: 12px;
+}
+
+/*D3 charts line css*/
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+#badge1{
+    font-size: 10px;
+}

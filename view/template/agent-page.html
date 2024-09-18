@@ -1,0 +1,72 @@
+<div ng-controller="agentController as agentCtrl" ng-init="agentCtrl.loadInitData();" class="container">
+    <div ng-hide="agentCtrl.loadingDisplay==1" class="text-center">
+        <img style ="margin-top:25%"src="img/loader1.gif" alt="">
+    </div>
+    <div class="responsive-table" ng-show="agentCtrl.loadingDisplay==1">
+        <div class="form-group">
+
+            <div class="input-group col-md-4 col-md-offset-4 ">
+                <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span> -->
+                <input class="advanced-search-input" ng-model="all" id="search" type="text" name="search" placeholder="Filter">
+            </div>
+            <div class="input-group col-md-4 col-md-offset-4">
+                <!-- <small><a  href=""data-toggle="modal" data-target="#advancedSearch">Advanced search</a></small> -->
+                <div class="input-group">
+                    <button ng-if="agentCtrl.edamTerm!=''" type="button" class="btn btn-success btn-xs" name="button" ng-click="agentCtrl.removeFilter()">x {{agentCtrl.edamTerm}}</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <div id="advancedSearch" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Advanced Search</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <div class="">
+                                        <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span> -->
+                                        <input ng-model="agentCtrl.edamTerm" id="search" type="text" class="advanced-search-input" name="search" placeholder="Search by EDAM terminology">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" ng-click="agentCtrl.advancedSearch()" data-dismiss="modal">Search</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="panel panel-default" dir-paginate="agent in agentCtrl.agentsArray | orderBy:agentCtrl.sortKey:agentCtrl.reverse | filter : ((type != 'all') ? {type: type} : '' )| filter : {name : name } | filter : all | itemsPerPage: agentCtrl.pageSize" current-page="agentCtrl.currentPage">
+
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <h3 ng-model="name"><a target="_blank"ng-href="{{agent.entities[0].agents[0].homepage}}">{{agent.entities[0].agents[0].name}}</a></h3>
+                    <p >{{agent.entities[0].agents[0].description}}</p>
+                </div>
+                <div class="col-md-6">
+                    <span  ng-repeat="a in agent.entities" >{{a.type | uppercase}} </span>
+
+                </div>
+                <div class= "col-md-6 text-right" style="">
+                    <a ng-click="agentCtrl.showDetails(agent);" type="button" class="btn btn-success btn-xs">More info</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="text-center">
+            <dir-pagination-controls boundary-links="true" max-size="12"></dir-pagination-controls>
+        </div>
+
+    </div>
+    <error-message error="agentCtrl.error" ng-show="agentCtrl.loadingDisplay==2" ></error-message>
+</div>

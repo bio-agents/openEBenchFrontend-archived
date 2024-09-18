@@ -1,0 +1,335 @@
+<div ng-controller="agentDetailsController as agentDetailsCtrl" ng-init="agentDetailsCtrl.loadInitData();" class="container" >
+        <h1 class="text-center">{{agentDetailsCtrl.theData[0].entities[0].agents[0].name}}</h1>
+
+        <h6 class="text-center"><a href="{{agentDetailsCtrl.theData[0].entities[0].agents[0].homepage}}" target="_blank">{{agentDetailsCtrl.theData[0].entities[0].agents[0].homepage}}</a></h6>
+        <p class="text-center">
+            <a href="https://bio.agents/{{agentDetailsCtrl.theData[0].id}}">
+                <img src="img/bt.svg" alt="">
+            </a>
+        </p>
+
+
+
+
+        <!-- <ul class="nav nav-tabs">
+            <li class="{{$index === 0 ? 'active' : ''}}" ng-repeat="agent1 in agentDetailsCtrl.agents" >
+                <a data-toggle="tab" data-target="#{{agent1['@type']}}" href="">
+                    <img style="vertical-align: text-bottom; font-size:33px;" ng-src="img/{{agent1['@type']}}.png" data-toggle="agenttip" title="{{agent1['@type'] | uppercase}}" alt="{{agent1['@type'] | uppercase}}" />
+                    {{agent1['@type'] | uppercase}}
+                </a>
+            </li>
+        </ul> -->
+
+        <uib-tabset active="active" ng-repeat="agents in agentDetailsCtrl.theData">
+            <uib-tab index="$index" ng-repeat="agent in agents.entities" heading='{{agent.type | uppercase}}'>
+                <!-- {{a.agents}} -->
+                <!-- {{agent.agents[index]}} -->
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Description: </b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>{{agentDetailsCtrl.versionSelected.description}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Version: </b></p>
+                    </div>
+
+                    <div class="col-md-10">
+
+                        <!-- <select ng-init="agentDetailsCtrl.versionSelected = agent.agents[agent.agents.length-1] "
+                                ng-model="agentDetailsCtrl.versionSelected"
+                                ng-options="x.version ? x.version : 'No version information' for x in agent.agents">
+
+                        </select> -->
+                        <a ng-repeat="x in agent.agents" ng-model = "agentDetailsCtrl.versionSelected" ng-click="agentDetailsCtrl.versionSelectedfun($index)">{{x.version ? x.version : 'No version information'}} </a>
+                        <!-- <select ng-options="x in agent.agents for x in agent.agents" ng-model="selected"></select> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center">Metrics</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Installability:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <img src="https://img.shields.io/badge/Build_dependencies-NO-red.svg" alt="">
+                            <!-- <img src="https://img.shields.io/badge/Build_dependencies-YES-green.svg" alt=""> -->
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Accesibility:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <!-- <img src="https://img.shields.io/badge/Binary-NO-red.svg" alt="">
+                            <img src="https://img.shields.io/badge/Binary-YES-green.svg" alt=""> -->
+                            <img ng-show="!agentDetailsCtrl.metricsData.distribution.sourcecode" src="https://img.shields.io/badge/Source_code-NO-red.svg" alt="">
+                            <img ng-show="agentDetailsCtrl.metricsData.distribution.sourcecode" src="https://img.shields.io/badge/Source_code-YES-green.svg" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Licensing:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <!-- <img ng-show="!agentDetailsCtrl.metricsData.project.license" src="https://img.shields.io/badge/Agent_license-NO-red.svg" alt=""> -->
+                            <!-- <img ng-show="agentDetailsCtrl.metricsData.project.license" src="https://img.shields.io/badge/Agent_license-YES-green.svg" alt=""> -->
+                            <img ng-show="agentDetailsCtrl.metricsData.project.license.osi == false || !agentDetailsCtrl.metricsData.project.license" src="https://img.shields.io/badge/OSI-NO-red.svg" alt="">
+                            <img ng-show="agentDetailsCtrl.metricsData.project.license.osi == true" src="https://img.shields.io/badge/OSI-YES-green.svg" alt="">
+                            <img ng-show="agentDetailsCtrl.metricsData.project.license.open_source == false || !agentDetailsCtrl.metricsData.project.license" src="https://img.shields.io/badge/Open_source-NO-red.svg" alt="">
+                            <img ng-show="agentDetailsCtrl.metricsData.project.license.open_source == true" src="https://img.shields.io/badge/Open_source-YES-green.svg" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Documentation:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <img src="https://img.shields.io/badge/Tutorial-NO-red.svg" alt="">
+                            <!-- <img src="https://img.shields.io/badge/Tutorial-YES-green.svg" alt=""> -->
+                            <img src="https://img.shields.io/badge/API-NO-red.svg" alt="">
+                            <!-- <img src="https://img.shields.io/badge/API-YES-green.svg" alt=""> -->
+                            <!-- <img src="https://img.shields.io/badge/Citation-NO-red.svg" alt=""> -->
+                            <img src="https://img.shields.io/badge/Citation-YES-green.svg" alt="">
+
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Support:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <!-- <img ng-show="!agentDetailsCtrl.metricsData.support" src="https://img.shields.io/badge/Support-NO-red.svg" alt=""> -->
+                            <!-- <img ng-show="agentDetailsCtrl.metricsData.support" src="https://img.shields.io/badge/Support-YES-green.svg" alt=""> -->
+                            <img ng-show="agentDetailsCtrl.metricsData.support.email == false || !agentDetailsCtrl.metricsData.support" src="https://img.shields.io/badge/Email-NO-red.svg" alt="">
+                            <img ng-show="agentDetailsCtrl.metricsData.support.email == true" src="https://img.shields.io/badge/Email-YES-green.svg" alt="">
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center">Up time</h2>
+                    </div>
+                </div>
+
+
+                <div class="row text-center">
+                    <div class="col-md-12" ng-if="agentDetailsCtrl.arrayUptime">
+                        <up-time-chart dataset="{{agentDetailsCtrl.arrayUptime}}"></up-time-chart>
+                        <!-- <up-time-chart dataset="{{agentDetailsCtrl.generateDataForUpTimeChart(agentDetailsCtrl.datasetUptimeChart(agent.getId()))}}"></up-time-chart> -->
+                    </div>
+                </div>
+
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Publications: </b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p ng-if="agentDetailsCtrl.versionSelected.publications.length==0">No publications</p>
+                        <span ng-repeat="publication in agentDetailsCtrl.versionSelected.publications">
+                            <span ng-repeat="(key,value) in publication">
+                                <p><a ng-click="agentDetailsCtrl.publicationLinks(key,value)">{{key | uppercase}}:{{value}}</a></p>
+
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row" ng-if="agentDetailsCtrl.chartavail!=0" >
+
+                    <div class="col-md-2">
+                        <p><b>Citations per year:</b></p>
+                    </div>
+                    <div class="col-md-8 col-md-offset-2" >
+                        <div style="width:400px;">
+                            <canvas  class="chart chart-base"
+                            chart-type="agentDetailsCtrl.chart.getType()"
+                            chart-labels="agentDetailsCtrl.chart.getLabel()"
+                            chart-options="agentDetailsCtrl.chart.getOptions()"
+                            chart-data="agentDetailsCtrl.chart.getData()"
+                            chart-colors="agentDetailsCtrl.chart.getColor()">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </uib-tab>
+        </uib-tabset>
+
+
+
+
+
+
+        <!-- <div class="tab-content"  ng-show="agentDetailsCtrl.agents!==null">
+            <p>{{agentDetailsCtrl.agents}}</p>
+            <div ng-repeat="agent in agentDetailsCtrl.agents" id="{{agent['@type']}}" class="{{$index === 0 ? 'tab-pane fade in active' : 'tab-pane fade'}}">
+
+                <div class="row">
+                    <br>
+                    <div class="col-md-12" >
+
+                        <h1 class="text-center">{{agent.name}}</h1>
+                        <h6 class="text-center"><a href="{{agent.homepage}}" target="_blank">{{agent.homepage}}</a></h6>
+                        <p class="text-center">
+                            <a href="{{agentDetailsCtrl.biolink}}">
+                                <img src="img/bt.svg" alt="">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <br>
+                {{agent}}
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Description: </b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>{{agent.description}}</p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Version: </b></p>
+                    </div>
+
+                    <div class="col-md-10">
+                        <p>{{agent.version ? agent.version : "No version information found"}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center">Metrics</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Installability:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <img src="img/i1.svg" alt="">
+                            <img src="img/i2.svg" alt="">
+                            <img src="img/i3.svg" alt="">
+                            <img src="img/i4.svg" alt="">
+                            <img src="img/i5.svg" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Accesibility:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <img src="img/a1.svg" alt="">
+                            <img src="img/a2.svg" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Licensing:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <img src="img/l1.svg" alt="">
+                            <img src="img/l2.svg" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Documentation:</b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p>
+                            <img src="img/d1.svg" alt="">
+                            <img src="img/d2.svg" alt="">
+                            <img src="img/d3.svg" alt="">
+                            <img src="img/d4.svg" alt="">
+                            <img src="img/d5.svg" alt="">
+                            <img src="img/d6.svg" alt="">
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-center">Up time</h2>
+                    </div>
+                </div>
+
+
+                <div class="row text-center">
+                    <div class="col-md-12" ng-if="agentDetailsCtrl.arrayUptime.length==5">
+                        <up-time-chart dataset="{{agentDetailsCtrl.arrayUptime}}"></up-time-chart>
+
+                    </div>
+                </div>
+
+
+
+                <hr>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p><b>Publications: </b></p>
+                    </div>
+                    <div class="col-md-10">
+                        <p ng-if="agent.publications.length==0">No publications</p>
+                        <span ng-repeat="publication in agent.publications">
+                            <span ng-repeat="(key,value) in publication">
+                                <p><a ng-click="agentDetailsCtrl.publicationLinks(key,value)">{{key | uppercase}}:{{value}}</a></p>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div> -->
+
+
+        <hr>
+        <div class="row">
+            <div class="col-md-5">
+                <p><b>Send a request to update information :</b></p>
+            </div>
+            <div class="col-md-7">
+                <button class="btn btn-success "type="button" ng-click="agentDetailsCtrl.addAlert()" name="button">Update information</button>
+
+            </div>
+            <div class="col-md-12">
+                <br>
+                <div uib-alert ng-repeat="alert in agentDetailsCtrl.alerts" dismiss-on-timeout="3000" ng-class="'alert-' + (alert.type || 'success')" close="agentDetailsCtrl.closeAlert($index)">{{alert.msg}}</div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <error-message error="agentDetailsCtrl.error" ng-show="agentDetailsCtrl.loadingDisplay==2" ></error-message>
+</div>

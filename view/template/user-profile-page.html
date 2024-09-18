@@ -1,0 +1,1083 @@
+<div ng-controller="profileController as profileCtrl" ng-init="profileCtrl.loadInitData();" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="text-center">
+                <img src="img/pp.png"  width="150px" height="150px"alt="">
+            </div>
+            <div class="text-center">
+                <h4>{{profileCtrl.name ? profileCtrl.name : "Demo"}}</h4>
+                <button type="button" class="btn btn-default">Follow</button>
+            </div>
+            <br>
+            <div>
+                <ul class="nav">
+                    <li>
+                        <a ng-click ="profileCtrl.loadDisplay=0">
+                            <i class="glyphicon glyphicon-filter"></i>
+                            Technical monitoring
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click ="profileCtrl.loadDisplay=1">
+                            <i class="glyphicon glyphicon-stats"></i>
+
+                            Scientific benchmark
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click ="profileCtrl.loadDisplay=2">
+                            <i class="glyphicon glyphicon-user"></i>
+                            Account Settings
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a ng-click ="profileCtrl.loadDisplay=3">
+                            <i class="glyphicon glyphicon-flag"></i>
+                            Help
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 border-left">
+            <div ng-show="profileCtrl.loadDisplay==0">
+                <div class="text-center">
+                    <h2>Technical Monitoring</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <h3 class="text-center"><i class="glyphicon glyphicon-pushpin"></i> Bookmarked agents</h3>
+                        </div>
+                        <table class="table table-condensed table-hover">
+                            <tr>
+                                <th><b>Name</b></th>
+                                <th><b>More info</b></th>
+                                <th><b>Types</b></th>
+                            </tr>
+                            <tr>
+                                <td>PMut</td>
+                                <td><a href="#" class="btn btn-info btn-xs">info</a></td>
+                                <td><img class ="table-icons"  title="CMD" src="img/cmd.png" alt="">
+                                    <img class ="table-icons"  title="WEB"  src="img/web.png" alt="">
+                                    <img class ="table-icons"  title="REST" src="img/rest.png" alt="REST"></td>
+                                </tr>
+                                <tr>
+                                    <td>TrimAl</td>
+                                    <td><a href="#" class="btn btn-info btn-xs">info</a></td>
+                                    <td><img class ="table-icons" src="img/cmd.png" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td>xcms</td>
+                                    <td><a href="#" class="btn btn-info btn-xs">info</a></td>
+                                    <td>
+                                        <span style="display:inline-block !important">
+                                            <img class ="table-icons" src="img/cmd.png" alt=""/>
+                                            <img class ="table-icons" src="img/lib.png" alt=""/>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>zipHMM</td>
+                                    <td><a href="#" class="btn btn-info btn-xs">info</a></td>
+                                    <td><img class ="table-icons" src="img/lib.png" alt=""></td>
+                                </tr>
+                        </table>
+                    </div>
+
+
+
+
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                            <h3 class="text-center"><i class="glyphicon glyphicon-edit"></i> Contributions</h3>
+                        </div>
+                        <table class="table table-condensed table-hover">
+                            <tr>
+                                <th><b>Name</b></th>
+                                <th><b>More info</b></th>
+                                <th><b>Types</b></th>
+
+                            </tr>
+                            <tr>
+                                <td>TrimAl</td>
+                                <td><a href="#" class="btn btn-info btn-xs">info</a></td>
+                                <td><img class ="table-icons" src="img/cmd.png" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td>PMut</td>
+                                <td><a href="#" class="btn btn-info btn-xs">info</a></td>
+                                <td><img class ="table-icons"  title="CMD" src="img/cmd.png" alt="">
+                                    <img class ="table-icons"  title="WEB"  src="img/web.png" alt="">
+                                    <img class ="table-icons"  title="REST" src="img/rest.png" alt="REST"></td>
+                                </tr>
+                                <tr>
+                                    <td>xcms</td>
+                                    <td><a href="#" class="btn btn-info btn-xs">info</a></td>
+                                    <td>
+                                        <span style="display:inline-block !important">
+                                            <img class ="table-icons" src="img/cmd.png" alt=""/>
+                                            <img class ="table-icons" src="img/lib.png" alt=""/>
+                                        </span>
+                                    </td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+
+
+                </div>
+            </div>
+
+
+            <div ng-show="profileCtrl.loadDisplay==1">
+                <h2 class="text-center">Scientific benchmark</h2>
+                <br>
+
+                <nav class="navbar navbar-default">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li ng-class="{'activecustom':profileCtrl.section == 0}" ng-click="profileCtrl.section = 0" class ="underlink"><a href="">Uploads</a></li>
+                        <li ng-class="{'activecustom':profileCtrl.section == 1}" ng-click="profileCtrl.section = 1" class ="underlink"><a href="">Communities</a></li>
+                    </ul>
+                </nav>
+
+                <div class="" ng-show="profileCtrl.section == 0">
+                    <div class="row">
+                        <p class="text-center">File upload </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 16th Jan 2018</small></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>file 1:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success " role="progressbar"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                100% (Ready to use)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="">Use in Community 1</a></li>
+                                        <li><a href="">Use in Community 2</a></li>
+
+                                    </ul>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-xs">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-2">
+                            <p>file 2:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar"
+                                aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                Failed
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger btn-xs">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Docker 2:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                100% (Ready to use)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="">Use in Community 1</a></li>
+                                        <li><a href="">Use in Community 2</a></li>
+
+                                    </ul>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-xs">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 17th Jan 2018</small></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Docker 3:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar"
+                                aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                Validating...
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group">
+
+                                <button type="button" class="btn btn-warning btn-xs">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Docker 4:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar"
+                                aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                100% (Pending validation)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success btn-xs">
+                                    Validate
+                                </button>
+                                <button type="button" class="btn btn-danger btn-xs">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 18th Jan 2018</small></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>file 6:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar"
+                                aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                100% (Pending validation)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success btn-xs">
+                                    Validate
+                                </button>
+                                <button type="button" class="btn btn-danger btn-xs">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-2">
+                            <p>Docker 5:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                100% (Ready to use)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">
+                                        <i class="glyphicon glyphicon-cog"></i> <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="">Use in Community 1</a></li>
+                                        <li><a href="">Use in Community 2</a></li>
+
+                                    </ul>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-xs">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 19th Jan 2018</small></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>file 7:</p>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                aria-valuenow="41" aria-valuemin="0" aria-valuemax="100" style="width:41%">
+                                41%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-xs" disabled>
+                                    Validate
+                                </button>
+                                <button type="button" class="btn btn-danger btn-xs" disabled>
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- <label for="">Upload files:</label>
+                    <div class="text-center" style="border:solid 2px #ADADAD; border-style: dashed;">
+                        <h1 style="color:#E0E0E0;">
+                            <i class="glyphicon glyphicon-upload"></i>
+                        </h1>
+                        <h4>Drop files here or <a href="">browse</a></h4>
+                    </div>
+                    <br>
+                    <br>
+                        <div class="UppyDragDrop"></div>
+                    <br>
+                    <br> -->
+                    <label for="">Upload files:</label>
+                    <div ngf-drop ngf-select ng-model="files"  class="text-center" style="border:solid 2px #ADADAD; border-style: dashed;"
+                       ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                       accept="image/*,application/pdf"
+                       ngf-pattern="'image/*,application/pdf'">
+                       <h1 style="color:#E0E0E0;">
+                           <i class="glyphicon glyphicon-upload"></i>
+                       </h1>
+                       <h4>Drop files here or <a href="">browse</a></h4>
+                   </div>
+
+                   <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
+                   <label for="">Files</label>
+                   <ul>
+                       <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+                   </ul>
+
+                   <label for="">Upload log:</label>
+                   <pre>{{log}}</pre>
+
+
+
+
+
+                </div>
+
+
+
+
+
+                <div ng-show="profileCtrl.section == 1">
+                <uib-tabset active="active">
+                    <uib-tab index="0" heading="Community 1">
+
+                        <br>
+                        <label for="">Role: </label>
+                        <select class="" name="">
+                            <option value="">Participant</option>
+                        </select>
+
+                            <div class="row">
+                                <p class="text-center">Files</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr>
+                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 16th Jan 2018</small></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <p>file 1:</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                        aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        100% (Ready to use)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-xs">
+                                            Use
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <p>file 2:</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                        aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        100% (Ready to use)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-xs">
+                                            Use
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <p>file 3:</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                        aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        100% (Ready to use)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-xs">
+                                            Use
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <p>file 4:</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                        aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        100% (Ready to use)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-xs">
+                                            Use
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr>
+                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 18th Jan 2018</small></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <p>file 6:</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                        aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        100% (Ready to use)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-xs">
+                                            Use
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <p>file 7:</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                        aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                        100% (Ready to use)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-info btn-xs">
+                                            Use
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <label for="">Import files:</label>
+                            <div class="text-center" style="border:solid 2px #ADADAD; border-style: dashed;">
+                                <h1 style="color:#E0E0E0;">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                </h1>
+                                <h4><a href="">Import</a> files from uploads</h4>
+                            </div>
+                            <br>
+                    </uib-tab>
+
+
+
+
+
+
+
+                    <uib-tab index="1" heading="Community 2">
+                        <br>
+                        <label for="">Role: </label>
+                        <select class="" name="" ng-init="selectedRole = 'manager'" ng-model="selectedRole">
+                            <option value="participant" >Participant</option>
+                                <option value="manager" selected>Manager</option>
+                        </select>
+                        <div class="" ng-show="selectedRole=='manager'">
+
+                            <!-- <div class="">
+                                <p class="text-center">Evaluation protocol </p>
+                            </div>
+                            <label for="">Import files :</label>
+                            <div class="text-center" style="border:solid 2px #ADADAD; border-style: dashed;">
+                                <h1 style="color:#E0E0E0;">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                </h1>
+                                <h4><a href="">Import</a> file from uploads</h4>
+                            </div> -->
+
+                            <br>
+                            <div class="">
+                                <div class="text-center">
+                                    <h1>Workflow</h1>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success btn-xl">
+                                            Run Workflow
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-xl">
+                                            CWL Workflow
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-xl">
+                                            Export Workflow
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <ul class="timeline">
+                                    <li class="timeline">
+                                        <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i>
+                                        </div>
+                                        <h2 class="text-center">Validation</h2>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-body">
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="">
+                                                            <div class="col-md-6">
+                                                                <div class="">
+                                                                    <img src="img/files.png" height="50px" width="50px" alt="">
+                                                                    <img src="img/docker.png" height="50px" width="50px" alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <br>
+                                                                <div class="">
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-success btn-xs">
+                                                                            Run
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger btn-xs">
+                                                                            Delete
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-default btn-xs">
+                                                                            Download
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-info btn-xs">
+                                                                            link
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="">
+                                                            <div class="col-md-6">
+                                                                <div class="">
+                                                                    <img src="img/files.png" height="50px" width="50px" alt="">
+                                                                    <img src="img/docker.png" height="50px" width="50px" alt="">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <br>
+                                                                <div class="">
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-success btn-xs">
+                                                                            Run
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger btn-xs">
+                                                                            Delete
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-default btn-xs">
+                                                                            Download
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-info btn-xs">
+                                                                            link
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="text-center" style="border:solid 2px #ADADAD; border-style: dashed;">
+                                                        <h6 style="color:#E0E0E0;">
+                                                            <i class="glyphicon glyphicon-plus"></i>
+                                                        </h6>
+                                                        <p><a href="">Import</a> dockers from uploads</p>
+                                                        <br>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                          </div>
+                                    </li>
+
+                                    <li class="timeline">
+                                        <div class="timeline-badge"><i class="glyphicon glyphicon-stats"></i></div>
+                                        <h2 class="timeline-title text-center">Metrics Calculation</h2>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-body">
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="">
+                                                            <div class="col-md-6">
+                                                                <div class="">
+                                                                    <img src="img/files.png" height="50px" width="50px" alt="">
+                                                                    <img src="img/docker.png" height="50px" width="50px" alt="">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <br>
+                                                                <div class="">
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-success btn-xs">
+                                                                            Run
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger btn-xs">
+                                                                            Delete
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-default btn-xs">
+                                                                            Download
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-info btn-xs">
+                                                                            link
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="text-center" style="border:solid 2px #ADADAD; border-style: dashed;">
+                                                        <h6 style="color:#E0E0E0;">
+                                                            <i class="glyphicon glyphicon-plus"></i>
+                                                        </h6>
+                                                        <p><a href="">Import</a> dockers from uploads</p>
+                                                        <br>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li class="timeline">
+                                        <div class="timeline-badge"><i class="glyphicon glyphicon-list-alt"></i></div>
+                                        <h2 class="text-center">Submission</h2>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-body">
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="">
+                                                            <div class="col-md-6">
+                                                                <div class="">
+                                                                    <img src="img/files.png" height="50px" width="50px" alt="">
+                                                                    <img src="img/docker.png" height="50px" width="50px" alt="">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <br>
+                                                                <div class="">
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-success btn-xs">
+                                                                            Run
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger btn-xs">
+                                                                            Delete
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-default btn-xs">
+                                                                            Download
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-info btn-xs">
+                                                                            link
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="text-center" style="border:solid 2px #ADADAD; border-style: dashed;">
+                                                        <h6 style="color:#E0E0E0;">
+                                                            <i class="glyphicon glyphicon-plus"></i>
+                                                        </h6>
+                                                        <p><a href="">Import</a> dockers from uploads</p>
+                                                        <br>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+                    <div class="" ng-show="selectedRole=='participant'">
+                        <div class="row">
+                            <p class="text-center">Files</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr>
+                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 16th Jan 2018</small></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <p>file 1:</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                    aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    100% (Ready to use)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs">
+                                        Use
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <p>file 2:</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                    aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    100% (Ready to use)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs">
+                                        Use
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <p>file 3:</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                    aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    100% (Ready to use)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs">
+                                        Use
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <p>file 4:</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                    aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    100% (Ready to use)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs">
+                                        Use
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <hr>
+                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 18th Jan 2018</small></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <p>file 6:</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                    aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    100% (Ready to use)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs">
+                                        Use
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <p>file 7:</p>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar"
+                                    aria-valuenow="Falied" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                    100% (Ready to use)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-xs">
+                                        Use
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <label for="">Upload files:</label>
+                        <div class="text-center" style="border:solid 2px #ADADAD; border-style: dashed;">
+                            <h1 style="color:#E0E0E0;">
+                                <i class="glyphicon glyphicon-plus"></i>
+                            </h1>
+                            <h4><a href="">Import</a> files from uploads</h4>
+                        </div>
+                        <br>
+                    </div>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+            </div>
+
+
+            <div ng-show="profileCtrl.loadDisplay==2">
+                <h2 class="text-center">Account settings</h2>
+                <br>
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Display name">Display name</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="glyphicon glyphicon-user">
+                                        </i>
+                                    </div>
+                                    <input id="Display name" name="Display name " type="text" placeholder="{{profileCtrl.name ? profileCtrl.name : 'Demo'}}" class="form-control input-md">
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <!-- File Button -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Upload photo">Upload photo</label>
+                            <div class="col-md-4">
+                                <input id="Upload photo" name="Upload photo" class="input-file" type="file">
+                            </div>
+                        </div>
+
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Overview (max 200 words)">Overview (max 200 words)</label>
+                            <div class="col-md-4">
+                                <textarea class="form-control" rows="10"  id="Overview (max 200 words)" name="Overview (max 200 words)">Overview</textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" ></label>
+                            <div class="col-md-4">
+                                <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Submit</a>
+                                <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+            <div ng-show="profileCtrl.loadDisplay==3">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+
+                            <p class="col-md-12" >Contact our support team (max 200 words)</p>
+                            <div class="col-md-10">
+                                <textarea class="form-control" rows="10"  id="Overview (max 200 words)" name="Overview (max 200 words)"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" ></label>
+                            <div class="col-md-4">
+                                <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up"></span> Send</a>
+                                <a href="#" class="btn btn-danger" value=""><span class="glyphicon glyphicon-remove-sign"></span> Clear</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <script>
+  var uppy = Uppy.Core({ autoProceed: false })
+  uppy.use(Uppy.DragDrop, {target: '.UppyDragDrop'})
+  uppy.use(Uppy.Tus, {endpoint: '//master.tus.io/files/'})
+  uppy.run()
+</script> -->

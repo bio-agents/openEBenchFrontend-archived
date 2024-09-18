@@ -1,0 +1,39 @@
+<div class="container" ng-controller="searchController as searchCtrl" ng-init="searchCtrl.loadInitData()">
+    <error-message error="searchCtrl.error" ng-show="searchCtrl.loadingDisplay==2" ></error-message>
+
+        <div ng-hide="searchCtrl.loadingDisplay==1" class="text-center">
+            <img style ="margin-top:25%"src="img/loader1.gif" alt="">
+        </div>
+        <div class="input-group col-md-4 col-md-offset-4" ng-show="searchCtrl.loadingDisplay==1">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span> -->
+            <input class="advanced-search-input" ng-model="all" id="search" type="text" name="search" placeholder="Filter">
+        </div>
+        <br>
+
+        <div ng-show="searchCtrl.loadingDisplay==1" class="panel panel-default" dir-paginate="agent in searchCtrl.data |  filter : all | itemsPerPage: searchCtrl.pageSize" current-page="searchCtrl.currentPage">
+
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <h3 ng-model="nameid"><a target="_blank"ng-href="{{agent.entities[0].agents[0].homepage}}">{{agent.entities[0].agents[0].name}}</a></h3>
+                    <p >{{agent.entities[0].agents[0].description}}</p>
+                </div>
+                <!-- <div class="col-md-6">
+                    <span  ng-repeat="a in agent.agents" ><img class ="table-icons" ng-src="img/{{a['@type']}}.png" data-toggle="agenttip" title="{{a['@type'] | uppercase}}" alt="{{a['@type'] | uppercase}}"/></span>
+                </div> -->
+                <div class="col-md-6">
+                    <span  ng-repeat="a in agent.entities" >{{a.type | uppercase}} </span>
+
+                </div>
+                <div class= "col-md-6 text-right" style="">
+                    <a ng-click="searchCtrl.showDetails(agent);" type="button" class="btn btn-success btn-xs">More info</a>
+                </div>
+            </div>
+        </div>
+        <div class="" ng-show="searchCtrl.data.length == 0 && searchCtrl.loadingDisplay ==1">
+            <h3>No entries found. Please click <a style="color:#EF7500"href="#!/agent">here</a> to see our complete list of agents</h3>
+        </div>
+        <div class="text-center">
+            <dir-pagination-controls boundary-links="true" max-size="12"></dir-pagination-controls>
+        </div>
+
+</div>
